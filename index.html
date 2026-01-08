@@ -28,204 +28,213 @@
         radial-gradient(900px 650px at 100% 40%, rgba(255,120,200,.18), transparent 55%),
         var(--bg);
     }
+
     .wrap{max-width:1200px;margin:0 auto;padding:22px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
-    .title{font-size:22px;font-weight:800;letter-spacing:.2px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;margin-bottom:18px;flex-wrap:wrap
+    }
+    .title{font-size:22px;font-weight:800}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+
     .btn{
-      display:inline-flex;align-items:center;gap:8px;
       padding:10px 14px;border-radius:999px;
       background:var(--btn);border:1px solid var(--border);
       color:var(--text);text-decoration:none;
       font-size:13px;font-weight:650;
-      transition:.15s ease;white-space:nowrap;
-      box-shadow:0 10px 25px rgba(0,0,0,.18);
+      transition:.15s ease;white-space:nowrap
     }
-    .btn:hover{background:var(--btnHover);transform:translateY(-1px)}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--gap)}
+    .btn:hover{background:var(--btnHover)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--gap)
+    }
     @media(max-width:980px){.grid{grid-template-columns:1fr}}
+
     .card{
       background:linear-gradient(180deg,var(--card),rgba(255,255,255,.03));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      overflow:hidden;
+      overflow:hidden
     }
+
     .card-h{
       padding:14px 16px;
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
       border-bottom:1px solid rgba(255,255,255,.08);
       background:rgba(0,0,0,.18);
+      font-weight:800;font-size:14px
     }
-    .card-h h2{margin:0;font-size:14px;font-weight:800;letter-spacing:.2px}
     .card-b{padding:14px 16px}
 
     .imgbox{
       border-radius:14px;overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10)
     }
-    .imgbox img{width:100%;height:auto;display:block}
+    .imgbox img{width:100%;display:block}
 
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:14px}
+    .two{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:var(--gap);margin-top:14px
+    }
     @media(max-width:980px){.two{grid-template-columns:1fr}}
 
     .subcard{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.18);
-      padding:12px;
-      min-height:160px;
+      border-radius:14px;border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.18);padding:12px
     }
     .subtitle{font-size:13px;font-weight:800;margin:0 0 8px 0}
-    .dl-list{margin:0;padding-left:16px;font-size:12px;line-height:1.55;color:var(--muted)}
-    .dl-list a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
-    .dl-list a:hover{border-bottom-color:rgba(255,255,255,.6)}
+
+    .dl-list{
+      margin:0;padding-left:16px;
+      font-size:12px;line-height:1.55;color:var(--muted)
+    }
+    .dl-list a{color:var(--text);text-decoration:none}
 
     .thumb{
-      display:block;width:220px;max-width:100%;
-      border-radius:14px;border:1px solid rgba(255,255,255,.12);
-      overflow:hidden;background:rgba(0,0,0,.22);
-      box-shadow:0 12px 30px rgba(0,0,0,.25);
-      transition:.15s ease;text-decoration:none;color:inherit;
+      display:block;border-radius:14px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      text-decoration:none;color:inherit
     }
-    .thumb:hover{transform:translateY(-2px)}
-    .thumb img{width:100%;height:auto;display:block}
-    .thumb .cap{padding:10px 10px;font-size:13px;font-weight:800}
+    .thumb img{width:100%;display:block}
+    .thumb .cap{padding:10px;font-weight:800;font-size:13px}
 
+    /* ===== YouTube ===== */
     .media16x9{
       position:relative;width:100%;
       padding-top:56.25%;
       border-radius:14px;overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
-      background:#000;
+      background:#000
     }
+    .playerWrap{position:absolute;inset:0}
     .media16x9 iframe{
       position:absolute;inset:0;
-      width:100%;height:100%;
-      border:0;
+      width:100%;height:100%;border:0
     }
 
-    /* Instagram feed window under YouTube */
+    /* unsichtbare Maske: blockt Controls, zeigt sie nur bei Hover */
+    .barMask{
+      position:absolute;
+      left:0;right:0;bottom:0;
+      height:56px;
+      background:transparent;
+      pointer-events:auto
+    }
+    .playerWrap:hover .barMask{
+      pointer-events:none
+    }
+
+    /* Instagram unter YouTube */
     .igWindow{
       margin-top:14px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
       overflow:hidden;
-      background:rgba(0,0,0,.18);
+      background:rgba(0,0,0,.18)
     }
     .igTitle{
       padding:12px 14px;
       border-bottom:1px solid rgba(255,255,255,.08);
       background:rgba(0,0,0,.18);
-      font-size:14px;
-      font-weight:800;
+      font-size:14px;font-weight:800
     }
     .igBody{
-      padding:0;
-      height:360px; /* ajuste si besoin */
-      background:#000;
+      height:360px;background:#000
     }
     .igBody iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
+      width:100%;height:100%;border:0;display:block
     }
 
     .social-buttons{
-      display:flex;gap:10px;margin-top:12px;justify-content:flex-end;flex-wrap:wrap;
+      display:flex;gap:10px;margin-top:12px;justify-content:flex-end
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="topbar">
-      <div class="title">UniPop Page Formateurs</div>
-      <div class="actions">
-        <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank" rel="noopener">Accréditation (PDF)</a>
-        <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank" rel="noopener">Flyer (PDF)</a>
-        <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank" rel="noopener">Tarifs</a>
-      </div>
-    </div>
-
-    <div class="grid">
-
-      <!-- GAUCHE -->
-      <div class="card">
-        <div class="card-h"><h2>Tarifs</h2></div>
-        <div class="card-b">
-          <div class="imgbox">
-            <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="Tarifs" />
-          </div>
-
-          <div class="two">
-            <div class="subcard">
-              <div class="subtitle">Documents à télécharger</div>
-              <ul class="dl-list">
-                <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank" rel="noopener">Demande d’accréditation</a></li>
-                <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank" rel="noopener">Flyer général</a></li>
-                <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank" rel="noopener">Tarifs</a></li>
-              </ul>
-            </div>
-
-            <div class="subcard">
-              <div class="subtitle">Flyer</div>
-              <a class="thumb" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank" rel="noopener">
-                <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="Flyer" />
-                <div class="cap">Télécharger le flyer</div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DROITE -->
-      <div class="card">
-        <div class="card-h"><h2>YouTube</h2></div>
-        <div class="card-b">
-          <div class="media16x9">
-            <iframe id="ytFrame" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-          </div>
-
-          <!-- Instagram feed window -->
-          <div class="igWindow">
-            <div class="igTitle">Instagram</div>
-            <div class="igBody">
-              <!-- OPTION 1 (recommandée) : coller ici l'iframe/script d'un widget "Instagram Feed" (Elfsight / EmbedSocial / Taggbox) -->
-              <!-- OPTION 2 (temporaire) : afficher la page Instagram dans un iframe (peut être bloqué par Instagram selon leurs règles) -->
-              <iframe
-                src="https://www.instagram.com/unipopluxembourg/embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-
-          <div class="social-buttons">
-            <a class="btn" href="https://www.youtube.com/@unipopluxembourg" target="_blank" rel="noopener">YouTube</a>
-            <a class="btn" href="https://www.instagram.com/unipopluxembourg/?hl=en" target="_blank" rel="noopener">Instagram</a>
-          </div>
-        </div>
-      </div>
-
+  <div class="topbar">
+    <div class="title">UniPop Formateurs</div>
+    <div class="actions">
+      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank">Document (PDF)</a>
+      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">Flyer (PDF)</a>
+      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs (image)</a>
     </div>
   </div>
 
-  <script>
-    const playlist = "UUQYHlWEGhzdDwA-kXoEPdyw";
-    const params = new URLSearchParams({
-      list: playlist,
-      autoplay: "1",
-      mute: "1",
-      rel: "0",
-      modestbranding: "1",
-      playsinline: "1"
-    });
-    document.getElementById("ytFrame").src = "https://www.youtube.com/embed/videoseries?" + params.toString();
-  </script>
+  <div class="grid">
+
+    <!-- GAUCHE -->
+    <div class="card">
+      <div class="card-h">Tarifs</div>
+      <div class="card-b">
+        <div class="imgbox">
+          <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="Tarifs">
+        </div>
+
+        <div class="two">
+          <div class="subcard">
+            <div class="subtitle">Documents à télécharger</div>
+            <ul class="dl-list">
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank">Demande d’accréditation</a></li>
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">Flyer général</a></li>
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs</a></li>
+            </ul>
+          </div>
+
+          <div class="subcard">
+            <div class="subtitle">Flyer</div>
+            <a class="thumb" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">
+              <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="">
+              <div class="cap">Télécharger le flyer</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DROITE -->
+    <div class="card">
+      <div class="card-h">YouTube</div>
+      <div class="card-b">
+        <div class="media16x9">
+          <div class="playerWrap">
+            <iframe id="ytFrame" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            <div class="barMask"></div>
+          </div>
+        </div>
+
+        <div class="igWindow">
+          <div class="igTitle">Instagram</div>
+          <div class="igBody">
+            <iframe
+              src="https://www.instagram.com/unipopluxembourg/embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="social-buttons">
+          <a class="btn" href="https://www.youtube.com/@unipopluxembourg" target="_blank">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/unipopluxembourg/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const playlist = "UUQYHlWEGhzdDwA-kXoEPdyw";
+  document.getElementById("ytFrame").src =
+    "https://www.youtube.com/embed/videoseries?list=" + playlist +
+    "&autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1";
+</script>
 </body>
 </html>
