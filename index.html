@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>UniPop Formateurs</title>
+  <title>UniPop Page Formateur</title>
 
   <style>
+    /* ===== OPTIONAL: Gotham Bold (nur aktiv, wenn Font-Dateien vorhanden) =====
+    @font-face{
+      font-family:"Gotham";
+      src:url("Gotham-Bold.woff2") format("woff2"),
+          url("Gotham-Bold.woff") format("woff");
+      font-weight:700;
+      font-style:normal;
+    }
+    */
+
     :root{
       --card:rgba(255,255,255,.10);
       --card-soft:rgba(0,0,0,.22);
@@ -21,7 +31,6 @@
 
     *{box-sizing:border-box}
 
-    /* transparent */
     html, body{
       margin:0;
       padding:0;
@@ -30,7 +39,6 @@
       color:var(--text);
     }
 
-    /* kein background */
     .wrap{
       max-width:1200px;
       margin:0 auto;
@@ -47,7 +55,12 @@
       flex-wrap:wrap;
     }
 
-    .title{font-size:22px;font-weight:800;margin-left:60px}
+    .title{
+      font-family:"Gotham","Montserrat","Helvetica Neue",Arial,sans-serif;
+      font-size:22px;
+      font-weight:700;
+      margin-left:40px;
+    }
 
     .actions{display:flex;gap:10px;flex-wrap:wrap}
 
@@ -166,6 +179,7 @@
     }
     .playerWrap:hover .barMask{pointer-events:none}
 
+    /* Instagram */
     .igWindow{
       margin-top:12px;
       border-radius:14px;
@@ -207,34 +221,37 @@
     <div class="title">UniPop Page Formateur</div>
     <div class="actions">
       <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank">Document (PDF)</a>
+      <a class="btn" href="https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xQ4KNpTw8UWjGcbcNWAnBKXHPn4jLVNKgMuruFwwpkJURDNEN1dPNDBCM0xPRUxSNTA0T0dQMUtRWi4u" target="_blank">Desiderata</a>
       <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">Flyer (PDF)</a>
-      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs</a>
+      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs (image)</a>
     </div>
   </div>
 
   <div class="grid">
 
+    <!-- GAUCHE -->
     <div class="card">
       <div class="card-h">Tarifs</div>
       <div class="card-b">
         <div class="imgbox">
-          <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg">
+          <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="Tarifs">
         </div>
 
         <div class="two">
           <div class="subcard">
             <div class="subtitle">Documents à télécharger</div>
             <ul class="dl-list">
-              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf">Demande d’accréditation</a></li>
-              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf">Flyer général</a></li>
-              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg">Tarifs</a></li>
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank">Demande d’accréditation</a></li>
+              <li><a href="https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=xQ4KNpTw8UWjGcbcNWAnBKXHPn4jLVNKgMuruFwwpkJURDNEN1dPNDBCM0xPRUxSNTA0T0dQMUtRWi4u" target="_blank">Desiderata</a></li>
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">Flyer général</a></li>
+              <li><a href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs</a></li>
             </ul>
           </div>
 
           <div class="subcard">
             <div class="subtitle">Flyer</div>
-            <a class="thumb" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf">
-              <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg">
+            <a class="thumb" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">
+              <img src="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" alt="">
               <div class="cap">Télécharger le flyer</div>
             </a>
           </div>
@@ -242,6 +259,7 @@
       </div>
     </div>
 
+    <!-- DROITE -->
     <div class="card">
       <div class="card-h">YouTube</div>
       <div class="card-b">
