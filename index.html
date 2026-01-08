@@ -7,170 +7,229 @@
 
   <style>
     :root{
-      /* 🔵 UniPop helleres Blau */
-      --bg-main:#0b2a63;
-      --bg-grad-1:#123a7a;
-      --bg-grad-2:#0e2f6b;
+      /* 🎨 UniPop Blau */
+      --bg-top:#0f3c86;
+      --bg-main:#0c2f6f;
+      --bg-bottom:#0a275c;
 
-      --card:rgba(255,255,255,.07);
-      --text:#f2f6ff;
-      --muted:rgba(242,246,255,.72);
-      --border:rgba(255,255,255,.14);
-      --shadow:0 18px 45px rgba(0,0,0,.35);
+      --card:rgba(255,255,255,.08);
+      --text:#f3f6ff;
+      --muted:rgba(243,246,255,.75);
+      --border:rgba(255,255,255,.16);
+      --shadow:0 14px 30px rgba(0,0,0,.35);
       --radius:18px;
       --gap:16px;
-      --btn:rgba(255,255,255,.12);
-      --btnHover:rgba(255,255,255,.20);
+      --btn:rgba(255,255,255,.14);
+      --btnHover:rgba(255,255,255,.22);
     }
 
     *{box-sizing:border-box}
 
+    /* 🚫 Body NICHT mehr strecken */
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% 0%, var(--bg-grad-1), transparent 60%),
-        radial-gradient(900px 650px at 100% 35%, var(--bg-grad-2), transparent 55%),
-        var(--bg-main);
+      background:#061c44; /* neutral fallback */
     }
 
-    .wrap{max-width:1200px;margin:0 auto;padding:22px}
+    /* ✅ Hintergrund sitzt hier */
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:22px 22px 14px;
+      color:var(--text);
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--bg-top),
+          var(--bg-main) 45%,
+          var(--bg-bottom)
+        );
+    }
 
     .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:14px;margin-bottom:18px;flex-wrap:wrap
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:16px;
+      flex-wrap:wrap;
     }
+
     .title{font-size:22px;font-weight:800}
 
     .actions{display:flex;gap:10px;flex-wrap:wrap}
 
     .btn{
-      padding:10px 14px;border-radius:999px;
-      background:var(--btn);border:1px solid var(--border);
-      color:var(--text);text-decoration:none;
-      font-size:13px;font-weight:650;
-      transition:.15s ease;white-space:nowrap
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--btn);
+      border:1px solid var(--border);
+      color:var(--text);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:650;
+      transition:.15s ease;
+      white-space:nowrap;
     }
     .btn:hover{background:var(--btnHover)}
 
     .grid{
       display:grid;
       grid-template-columns:1.2fr .8fr;
-      gap:var(--gap)
+      gap:var(--gap);
     }
     @media(max-width:980px){.grid{grid-template-columns:1fr}}
 
     .card{
-      background:linear-gradient(180deg,var(--card),rgba(255,255,255,.03));
+      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      overflow:hidden
+      overflow:hidden;
     }
 
     .card-h{
-      padding:14px 16px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.18);
-      font-weight:800;font-size:14px
+      padding:13px 16px;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      font-weight:800;
+      font-size:14px;
     }
-    .card-b{padding:14px 16px}
+
+    .card-b{padding:14px 16px 12px}
 
     .imgbox{
-      border-radius:14px;overflow:hidden;
-      border:1px solid rgba(255,255,255,.12)
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
     }
     .imgbox img{width:100%;display:block}
 
     .two{
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:var(--gap);margin-top:14px
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:var(--gap);
+      margin-top:12px;
     }
     @media(max-width:980px){.two{grid-template-columns:1fr}}
 
     .subcard{
-      border-radius:14px;border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.20);padding:12px
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.25);
+      padding:12px;
     }
-    .subtitle{font-size:13px;font-weight:800;margin:0 0 8px 0}
+
+    .subtitle{
+      font-size:13px;
+      font-weight:800;
+      margin:0 0 6px 0;
+    }
 
     .dl-list{
-      margin:0;padding-left:16px;
-      font-size:12px;line-height:1.55;color:var(--muted)
+      margin:0;
+      padding-left:16px;
+      font-size:12px;
+      line-height:1.5;
+      color:var(--muted);
     }
     .dl-list a{color:var(--text);text-decoration:none}
 
     .thumb{
-      display:block;border-radius:14px;overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      text-decoration:none;color:inherit
+      display:block;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.20);
+      text-decoration:none;
+      color:inherit;
     }
     .thumb img{width:100%;display:block}
-    .thumb .cap{padding:10px;font-weight:800;font-size:13px}
+    .thumb .cap{
+      padding:8px 10px;
+      font-weight:800;
+      font-size:13px;
+    }
 
     /* ===== YouTube ===== */
     .media16x9{
-      position:relative;width:100%;
+      position:relative;
+      width:100%;
       padding-top:56.25%;
-      border-radius:14px;overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background:#000
-    }
-    .playerWrap{position:absolute;inset:0}
-    .media16x9 iframe{
-      position:absolute;inset:0;
-      width:100%;height:100%;border:0
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.20);
+      background:#000;
     }
 
-    /* unsichtbare Maske für Controls */
+    .playerWrap{position:absolute;inset:0}
+
+    .media16x9 iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Controls nur bei Hover */
     .barMask{
       position:absolute;
       left:0;right:0;bottom:0;
       height:56px;
       background:transparent;
-      pointer-events:auto
+      pointer-events:auto;
     }
-    .playerWrap:hover .barMask{
-      pointer-events:none
-    }
+    .playerWrap:hover .barMask{pointer-events:none}
 
     /* Instagram */
     .igWindow{
-      margin-top:14px;
+      margin-top:12px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
       overflow:hidden;
-      background:rgba(0,0,0,.20)
+      background:rgba(0,0,0,.25);
     }
+
     .igTitle{
-      padding:12px 14px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.20);
-      font-size:14px;font-weight:800
+      padding:10px 14px;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.25);
+      font-size:14px;
+      font-weight:800;
     }
+
     .igBody{
-      height:360px;background:#000
+      height:300px;
+      background:#000;
     }
     .igBody iframe{
-      width:100%;height:100%;border:0;display:block
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
     }
 
     .social-buttons{
-      display:flex;gap:10px;margin-top:12px;justify-content:flex-end
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      justify-content:flex-end;
     }
   </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
   <div class="topbar">
-    <div class="title">UniPop Formateurs</div>
+    <div class="title">UniPop Page Formateur</div>
     <div class="actions">
       <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Demande-accreditation-UniPop_VersionNovembre2025.pdf" target="_blank">Document (PDF)</a>
       <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Flyer_Unipop.pdf" target="_blank">Flyer (PDF)</a>
-      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs (image)</a>
+      <a class="btn" href="https://www.unipop.lu/wp-content/uploads/2026/01/Tarif.jpg" target="_blank">Tarifs</a>
     </div>
   </div>
 
@@ -243,5 +302,6 @@
     "https://www.youtube.com/embed/videoseries?list=" + playlist +
     "&autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1";
 </script>
+
 </body>
 </html>
